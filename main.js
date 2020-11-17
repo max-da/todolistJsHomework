@@ -72,8 +72,8 @@ function handleClick(todoItem) {
         if (todoItems[i].id == todoItem.id){
            let latestDeleted =  todoItems.splice(i,1); 
             console.log(latestDeleted);
-           let latDelObString = JSON.stringify(latestDeleted) 
-           sessionStorage.setItem("latestDeletedObj", latDelObString);
+          
+           sessionStorage.setItem("latestDeletedObj",JSON.stringify(latestDeleted))
             console.log(sessionStorage.getItem("latestDeletedObj"))
          
            todoListClear.innerText = "";
@@ -86,15 +86,19 @@ function handleClick(todoItem) {
 
        
 function handleUndoClick() {
+    let i = 0;
     let todoListClear = document.getElementById("todo_list");
-    let getObj = sessionStorage.getItem("latestDeletedObj");
-    let getObjObj = JSON.parse(getObj);
-    console.log(getObjObj)
+    let getObjSS = JSON.parse(sessionStorage.latestDeletedObj)
     
-    
+    let regretItem = new TodoItem(getObjSS[i].name, getObjSS[i].id);
+    console.log(regretItem);
+    todoItems.push(regretItem);
+    console.log(todoItems);
+     
     
   
-
+    todoListClear.innerText = "";
+    creator();
     sessionStorage.clear();
   
    
