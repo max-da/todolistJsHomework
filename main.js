@@ -96,12 +96,7 @@ function handleUndoClick() {
   
 
     sessionStorage.clear();
-   /* let getObj = new TodoItem;
-    
-    todoItems.push(regretObj);
-    todoListClear.innerText = "";
-    creator();
-    console.log(todoItems);*/
+  
    
 }       
   
