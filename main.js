@@ -32,7 +32,7 @@ todoItems.push(Todoitem3);
     
     
  
-    creator();
+    listCreator();
 
 
 
@@ -54,7 +54,7 @@ function handleInputClick(){
         let usrTodo = new TodoItem(usrInput,x++);
         todoItems.push(usrTodo);
         todoListClear.innerText = "";
-        creator();
+        listCreator();
         inputTodoItem.value = "" ;
         
        
@@ -78,7 +78,7 @@ function handleClick(todoItem) {
             
          
            todoListClear.innerText = "";
-           creator();           
+           listCreator();           
         }
     
         
@@ -99,7 +99,7 @@ function handleUndoClick() {
     
   
     todoListClear.innerText = "";
-    creator();
+    listCreator();
     sessionStorage.clear();
   
    
@@ -110,7 +110,7 @@ function handleUndoClick() {
 
 
 
-function creator(){
+function listCreator(){
        
     for (let i = 0; i < todoItems.length; i++) {
 
@@ -163,17 +163,21 @@ function creator(){
 
 function handleSortClick(){
     
-    function compare( a,b ){
-        if (a.name < b.name){
-            return -1;
+
+    todoItems.sort(function(a, b) {
+        let nameA = a.name.toUpperCase(); // ignore upper and lowercase
+        let nameB = b.name.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+          return -1;
         }
-        if (a.name > b.name){
-            return 1;
+        if (nameA > nameB) {
+          return 1;
         }
+      
+      
         return 0;
-    }
-    todoItems.sort(compare);
+      });
     let todoListClear = document.getElementById("todo_list");
     todoListClear.innerText = "";
-    creator();
+    listCreator();
 }
