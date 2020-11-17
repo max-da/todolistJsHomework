@@ -55,6 +55,7 @@ function handleInputClick(){
         todoItems.push(usrTodo);
         todoListClear.innerText = "";
         creator();
+        inputTodoItem.value = "" ;
         
        
     }
