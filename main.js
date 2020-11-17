@@ -6,7 +6,7 @@ class TodoItem {
     }
 }
 let x = 0; 
-
+let i = 0;
 
 
 let todoItems = [];
@@ -72,10 +72,10 @@ function handleClick(todoItem) {
     for (let i = 0; i < todoItems.length; i++) {
         if (todoItems[i].id == todoItem.id){
            let latestDeleted =  todoItems.splice(i,1); 
-            console.log(latestDeleted);
+            
           
            sessionStorage.setItem("latestDeletedObj",JSON.stringify(latestDeleted))
-            console.log(sessionStorage.getItem("latestDeletedObj"))
+            
          
            todoListClear.innerText = "";
            creator();           
@@ -87,14 +87,14 @@ function handleClick(todoItem) {
 
        
 function handleUndoClick() {
-    let i = 0;
+    
     let todoListClear = document.getElementById("todo_list");
     let getObjSS = JSON.parse(sessionStorage.latestDeletedObj)
     
     let regretItem = new TodoItem(getObjSS[i].name, getObjSS[i].id);
-    console.log(regretItem);
+ 
     todoItems.push(regretItem);
-    console.log(todoItems);
+   
      
     
   
