@@ -1,5 +1,12 @@
-##HTML-Tags 
+# Javascript homework
+
+
+## HTML-Tags 
 snake_case
 
-##JS-Variables
+## JS-Variables
 camelCase
+
+## Variables
+Using let instead of var. 
+
